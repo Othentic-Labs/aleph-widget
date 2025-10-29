@@ -1,31 +1,18 @@
-# @aleph-fi/widget
+# @aleph-fi/widget-react
 
-Monorepo for Aleph Widget packages.
-
-## Packages
-
-This repository is organized as a monorepo containing the following packages:
-
-- [`@aleph-fi/widget-react`](./packages/react) - React component for Aleph Widget
-- [`@aleph-fi/widget`](./packages/core) - Vanilla JavaScript library for Aleph Widget
+Aleph Widget for React applications.
 
 ## Installation
 
-### React Component
-
 ```bash
 npm install @aleph-fi/widget-react
-```
-
-### Vanilla JavaScript
-
-```bash
-npm install @aleph-fi/widget
+# or
+pnpm install @aleph-fi/widget-react
+# or
+yarn add @aleph-fi/widget-react
 ```
 
 ## Usage
-
-### React
 
 ```tsx
 import { AlephWidget } from '@aleph-fi/widget-react';
@@ -33,21 +20,29 @@ import { AlephWidget } from '@aleph-fi/widget-react';
 function App() {
   return (
     <div>
-      <AlephWidget />
+      <AlephWidget 
+        vaultId="your-vault-id"
+        theme="light"
+        width="424px"
+      />
     </div>
   );
 }
 ```
 
-### Vanilla JavaScript
+## Props
 
-```javascript
-import { AlephWidget } from '@aleph-fi/widget';
-
-const widget = new AlephWidget({
-  container: '#widget-container'
-});
-```
+| Prop | Type | Required | Default | Description |
+|------|------|----------|---------|-------------|
+| `vaultId` | `string` | Yes | - | Vault ID to display in the widget |
+| `theme` | `"light" \| "dark"` | No | `"light"` | Widget theme |
+| `width` | `string \| number` | No | `"424px"` | Widget width |
+| `className` | `string` | No | `""` | Additional className for the iframe container |
+| `style` | `React.CSSProperties` | No | `{}` | Additional inline styles for the iframe |
+| `onHeightChange` | `(height: number) => void` | No | - | Callback fired when widget height changes |
+| `environment` | `"production"` | No | `"production"` | Widget environment |
+| `onReady` | `() => void` | No | - | Callback fired when widget is ready |
+| `onError` | `(error: Error) => void` | No | - | Callback fired when widget encounters an error |
 
 ## Development
 

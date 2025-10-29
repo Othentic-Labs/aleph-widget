@@ -2,9 +2,18 @@
   "name": "@aleph-fi/widget-react",
   "version": "0.1.0",
   "description": "React component for Aleph Widget",
+  "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "sideEffects": false,
   "files": [
     "dist"
   ],
@@ -12,13 +21,17 @@
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "clean": "rm -rf dist",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "pnpm run build"
   },
   "keywords": [
     "aleph",
     "widget",
     "react",
-    "component"
+    "component",
+    "iframe",
+    "vault",
+    "defi",
+    "web3"
   ],
   "author": "Othentic Labs",
   "license": "MIT",
@@ -28,21 +41,24 @@
     "directory": "packages/react"
   },
   "homepage": "https://github.com/aleph-fi/aleph-widget/tree/main/packages/react",
+  "engines": {
+    "node": ">=16.0.0"
+  },
   "peerDependencies": {
-    "react": "^17.0.0 || ^18.0.0",
-    "react-dom": "^17.0.0 || ^18.0.0"
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.6",
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "rollup": "^4.18.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
-    "tslib": "^2.6.2",
+    "tslib": "^2.6.3",
     "typescript": "^5.5.3"
   },
   "publishConfig": {
