@@ -1,0 +1,16 @@
+{
+    "name": "@othentic-labs/aleph-widget",
+    "private": true,
+    "workspaces": [
+        "packages/*"
+    ],
+    "scripts": {
+        "build": "npm run build --workspaces --if-present",
+        "dev": "npm run dev --workspaces --if-present",
+        "clean": "npm run clean --workspaces --if-present && rm -rf node_modules",
+        "publish:packages": "npm publish --workspaces --access public"
+    },
+    "devDependencies": {
+        "typescript": "^5.5.3"
+    }
+}
