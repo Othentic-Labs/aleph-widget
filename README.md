@@ -54,7 +54,7 @@ const widget = new AlephWidget({
 ### Prerequisites
 
 - Node.js 18+
-- npm 7+ (для поддержки workspaces)
+- npm 7+ (for workspaces support)
 
 ### Setup
 
