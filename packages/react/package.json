@@ -1,6 +1,6 @@
 {
   "name": "@aleph-fi/widget-react",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "React component for Aleph Widget",
   "type": "module",
   "main": "dist/index.cjs",
@@ -37,10 +37,9 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/aleph-fi/aleph-widget.git",
+    "url": "https://github.com/Othentic-Labs/aleph-widget.git",
     "directory": "packages/react"
   },
-  "homepage": "https://github.com/aleph-fi/aleph-widget/tree/main/packages/react",
   "engines": {
     "node": ">=16.0.0"
   },

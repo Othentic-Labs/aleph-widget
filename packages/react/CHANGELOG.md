@@ -1,5 +1,11 @@
 # @aleph-fi/widget-react
 
+## 0.2.1
+
+### Patch Changes
+
+- Change information in documentation
+
 ## 0.2.0
 
 ### Minor Changes
