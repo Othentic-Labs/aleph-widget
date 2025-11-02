@@ -5,9 +5,13 @@
         "build": "pnpm -r run build",
         "dev": "pnpm -r run dev",
         "clean": "pnpm -r run clean && rm -rf node_modules",
-        "publish:packages": "pnpm -r publish --access public"
+        "publish:packages": "pnpm -r publish --access public",
+        "changeset": "changeset",
+        "version": "changeset version",
+        "release": "pnpm run build && changeset publish"
     },
     "devDependencies": {
+        "@changesets/cli": "^2.29.7",
         "typescript": "^5.5.3"
     }
 }

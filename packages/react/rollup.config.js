@@ -3,6 +3,7 @@ import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import { readFileSync } from "fs";
+import terser from "@rollup/plugin-terser";
 
 const packageJson = JSON.parse(readFileSync("./package.json", "utf-8"));
 
@@ -28,7 +29,7 @@ export default {
       tsconfig: "./tsconfig.json",
       exclude: ["**/*.test.tsx", "**/*.test.ts", "**/*.stories.tsx"],
     }),
+    terser(),
   ],
   external: ["react", "react-dom"],
 };
-

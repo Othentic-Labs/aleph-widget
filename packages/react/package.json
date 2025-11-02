@@ -1,16 +1,16 @@
 {
   "name": "@aleph-fi/widget-react",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "React component for Aleph Widget",
   "type": "module",
-  "main": "dist/index.js",
+  "main": "dist/index.cjs",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.esm.js",
-      "require": "./dist/index.js"
+      "require": "./dist/index.cjs"
     }
   },
   "sideEffects": false,
@@ -51,6 +51,7 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^11.1.6",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",

@@ -1,22 +1,70 @@
-MIT License
+PROPRIETARY SOFTWARE LICENSE AGREEMENT
 
-Copyright (c) 2024 Othentic Labs
+Copyright (c) 2025 Othentic Labs. All rights reserved.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+This software and associated documentation files (the "Software") are proprietary
+to Othentic Labs and are protected by copyright law and international treaties.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+GRANT OF LICENSE
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+Subject to the terms and conditions of this Agreement and valid license subscription,
+Othentic Labs grants to licensed clients ("Licensee") a limited, non-exclusive,
+non-transferable license to:
 
+1. Use the Software for internal business purposes only
+2. Integrate the Software into Licensee's own applications and services
+3. Modify the Software solely for Licensee's internal use
+
+RESTRICTIONS
+
+Licensee shall NOT:
+
+1. Distribute, sublicense, rent, lease, or lend the Software to any third party
+2. Sell, resell, or commercialize the Software or any derivative works
+3. Publish, disclose, or make the Software publicly available
+4. Remove or alter any proprietary notices, labels, or marks on the Software
+5. Reverse engineer, decompile, or disassemble the Software (except to the extent
+   expressly permitted by applicable law)
+6. Use the Software to create competing products or services
+7. Transfer the license to any other party without prior written consent from
+   Othentic Labs
+
+OWNERSHIP
+
+Othentic Labs retains all right, title, and interest in and to the Software,
+including all intellectual property rights. This Agreement does not grant Licensee
+any ownership rights to the Software.
+
+LICENSE TERM
+
+This license is valid only during an active subscription or license agreement with
+Othentic Labs. Upon termination or expiration, Licensee must cease all use of the
+Software and destroy all copies.
+
+WARRANTY DISCLAIMER
+
+THE SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE, AND NONINFRINGEMENT.
+
+LIMITATION OF LIABILITY
+
+IN NO EVENT SHALL OTHENTIC LABS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+GOVERNING LAW
+
+This Agreement shall be governed by and construed in accordance with the laws of
+the jurisdiction in which Othentic Labs operates.
+
+CONTACT INFORMATION
+
+For licensing inquiries, please contact:
+
+Othentic Labs Ltd
+Registration number: 516743945
+Email: info@othentic.xyz
+Website: https://aleph.finance
+
+UNAUTHORIZED USE OF THIS SOFTWARE IS STRICTLY PROHIBITED AND MAY RESULT IN LEGAL ACTION.

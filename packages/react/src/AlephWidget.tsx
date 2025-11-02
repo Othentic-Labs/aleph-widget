@@ -1,10 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
-const WIDGET_URLS = {
-  production: "https://aleph-widget-dev.up.railway.app",
-} as const;
-
-type Environment = keyof typeof WIDGET_URLS;
+const WIDGET_URL = "https://aleph-widget-dev.up.railway.app" as const;
 
 export interface AlephWidgetProps {
   /**
@@ -41,13 +37,6 @@ export interface AlephWidgetProps {
   onHeightChange?: (height: number) => void;
 
   /**
-   * Widget environment
-   * Use 'staging' for testing, 'production' for live
-   * @default 'production'
-   */
-  environment?: Environment;
-
-  /**
    * Callback fired when widget is ready
    */
   onReady?: () => void;
@@ -65,7 +54,6 @@ export const AlephWidget: React.FC<AlephWidgetProps> = ({
   className = "",
   style = {},
   onHeightChange,
-  environment = "production",
   onReady,
   onError,
 }) => {
@@ -73,13 +61,11 @@ export const AlephWidget: React.FC<AlephWidgetProps> = ({
   const [height, setHeight] = useState(600);
   const [isReady, setIsReady] = useState(false);
 
-  const widgetUrl = WIDGET_URLS[environment];
-  const iframeSrc = `${widgetUrl}?theme=${theme}&vaultId=${vaultId}`;
+  const iframeSrc = `${WIDGET_URL}?theme=${theme}&vaultId=${vaultId}`;
 
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
-      const validOrigins = Object.values(WIDGET_URLS) as string[];
-      if (!validOrigins.includes(event.origin)) {
+      if (event.origin !== WIDGET_URL) {
         return;
       }
 
