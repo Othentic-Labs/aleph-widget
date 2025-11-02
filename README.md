@@ -73,4 +73,4 @@ npm run dev
 
 ## License
 
-MIT
+Proprietary - See [LICENSE](LICENSE) file for details
