@@ -1,6 +1,6 @@
 {
   "name": "@aleph-fi/widget-react",
-  "version": "0.2.1",
+  "version": "1.0.0",
   "description": "React component for Aleph Widget",
   "type": "module",
   "main": "dist/index.cjs",
@@ -34,7 +34,7 @@
     "web3"
   ],
   "author": "Othentic Labs",
-  "license": "MIT",
+  "license": "UNLICENSED",
   "repository": {
     "type": "git",
     "url": "https://github.com/Othentic-Labs/aleph-widget.git",

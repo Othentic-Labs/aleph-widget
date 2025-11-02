@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const WIDGET_URL = "https://aleph-widget-dev.up.railway.app" as const;
 
@@ -15,10 +15,16 @@ export interface AlephWidgetProps {
   theme?: "light" | "dark";
 
   /**
-   * Widget width
-   * @default '424px'
+   * Widget height (initial/minimum height)
+   * @default 400
    */
-  width?: string | number;
+  height?: string | number;
+
+  /**
+   * Enable automatic height resizing based on widget content
+   * @default false
+   */
+  autoResize?: boolean;
 
   /**
    * Additional className for the iframe container
@@ -31,12 +37,6 @@ export interface AlephWidgetProps {
   style?: React.CSSProperties;
 
   /**
-   * Callback fired when widget height changes
-   * @param height - New height in pixels
-   */
-  onHeightChange?: (height: number) => void;
-
-  /**
    * Callback fired when widget is ready
    */
   onReady?: () => void;
@@ -47,73 +47,79 @@ export interface AlephWidgetProps {
   onError?: (error: Error) => void;
 }
 
-export const AlephWidget: React.FC<AlephWidgetProps> = ({
-  vaultId,
-  theme = "light",
-  width = "424px",
-  className = "",
-  style = {},
-  onHeightChange,
-  onReady,
-  onError,
-}) => {
-  const iframeRef = useRef<HTMLIFrameElement>(null);
-  const [height, setHeight] = useState(600);
-  const [isReady, setIsReady] = useState(false);
+export const AlephWidget = React.forwardRef<
+  HTMLIFrameElement,
+  AlephWidgetProps
+>(
+  (
+    {
+      vaultId,
+      theme = "light",
+      height: initialHeight = 400,
+      autoResize = false,
+      className = "",
+      style = {},
+      onReady,
+      onError,
+    },
+    ref
+  ) => {
+    const [height, setHeight] = useState<string | number>(initialHeight);
+    const [_, setIsReady] = useState(false);
 
-  const iframeSrc = `${WIDGET_URL}?theme=${theme}&vaultId=${vaultId}`;
+    const iframeSrc = `${WIDGET_URL}?theme=${theme}&vaultId=${vaultId}`;
 
-  useEffect(() => {
-    const handleMessage = (event: MessageEvent) => {
-      if (event.origin !== WIDGET_URL) {
-        return;
-      }
+    useEffect(() => {
+      const handleMessage = (event: MessageEvent) => {
+        if (event.origin !== WIDGET_URL) {
+          return;
+        }
 
-      switch (event.data.type) {
-        case "resize":
-          if (typeof event.data.height === "number") {
-            setHeight(event.data.height);
-            onHeightChange?.(event.data.height);
-          }
-          break;
+        switch (event.data.type) {
+          case "resize":
+            if (autoResize && typeof event.data.height === "number") {
+              setHeight(event.data.height);
+            }
+            break;
 
-        case "ready":
-          setIsReady(true);
-          onReady?.();
-          break;
+          case "ready":
+            setIsReady(true);
+            onReady?.();
+            break;
 
-        case "error":
-          onError?.(new Error(event.data.message || "Widget error"));
-          break;
-      }
-    };
+          case "error":
+            onError?.(new Error(event.data.message || "Widget error"));
+            break;
+        }
+      };
 
-    window.addEventListener("message", handleMessage);
+      window.addEventListener("message", handleMessage);
 
-    return () => {
-      window.removeEventListener("message", handleMessage);
-    };
-  }, [onHeightChange, onReady, onError]);
+      return () => {
+        window.removeEventListener("message", handleMessage);
+      };
+    }, [autoResize, onReady, onError]);
 
-  const widthStyle = typeof width === "number" ? `${width}px` : width;
+    const heightStyle = typeof height === "number" ? `${height}px` : height;
 
-  return (
-    <iframe
-      ref={iframeRef}
-      src={iframeSrc}
-      className={className}
-      style={{
-        width: widthStyle,
-        height: `${height}px`,
-        border: "none",
-        display: "block",
-        ...style,
-      }}
-      allow="camera; microphone; geolocation; fullscreen"
-      title="Aleph Vault Widget"
-      sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"
-    />
-  );
-};
+    return (
+      <iframe
+        ref={ref}
+        src={iframeSrc}
+        className={className}
+        style={{
+          height: heightStyle,
+          display: "block",
+          ...style,
+        }}
+        allow="camera; microphone; geolocation; fullscreen"
+        title="Aleph Vault Widget"
+        sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"
+      />
+    );
+  }
+);
+
+AlephWidget.displayName = "AlephWidget";
 
 export default AlephWidget;

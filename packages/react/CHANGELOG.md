@@ -1,5 +1,18 @@
 # @aleph-fi/widget-react
 
+## 1.0.0
+
+### Major Changes
+
+- Breaking changes to AlephWidget API:
+
+  - Removed `width` prop (replaced with `height`)
+  - Removed `onHeightChange` callback (replaced with `autoResize` boolean prop)
+  - Changed component implementation to use `React.forwardRef` for ref forwarding support
+  - Auto-resizing is now opt-in via `autoResize` prop (previously always enabled)
+  - Removed default `border: "none"` style
+  - Changed license from MIT to UNLICENSED
+
 ## 0.2.1
 
 ### Patch Changes

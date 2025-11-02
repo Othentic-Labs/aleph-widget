@@ -15,16 +15,12 @@ yarn add @aleph-fi/widget-react
 ## Usage
 
 ```tsx
-import { AlephWidget } from '@aleph-fi/widget-react';
+import { AlephWidget } from "@aleph-fi/widget-react";
 
 function App() {
   return (
     <div>
-      <AlephWidget 
-        vaultId="your-vault-id"
-        theme="light"
-        width="424px"
-      />
+      <AlephWidget vaultId="your-vault-id" theme="light" autoResize />
     </div>
   );
 }
@@ -32,17 +28,18 @@ function App() {
 
 ## Props
 
-| Prop | Type | Required | Default | Description |
-|------|------|----------|---------|-------------|
-| `vaultId` | `string` | Yes | - | Vault ID to display in the widget |
-| `theme` | `"light" \| "dark"` | No | `"light"` | Widget theme |
-| `width` | `string \| number` | No | `"424px"` | Widget width |
-| `className` | `string` | No | `""` | Additional className for the iframe container |
-| `style` | `React.CSSProperties` | No | `{}` | Additional inline styles for the iframe |
-| `onHeightChange` | `(height: number) => void` | No | - | Callback fired when widget height changes |
-| `environment` | `"production"` | No | `"production"` | Widget environment |
-| `onReady` | `() => void` | No | - | Callback fired when widget is ready |
-| `onError` | `(error: Error) => void` | No | - | Callback fired when widget encounters an error |
+| Prop         | Type                     | Required | Default   | Description                                              |
+| ------------ | ------------------------ | -------- | --------- | -------------------------------------------------------- |
+| `vaultId`    | `string`                 | Yes      | -         | Vault ID to display in the widget                        |
+| `theme`      | `"light" \| "dark"`      | No       | `"light"` | Widget theme                                             |
+| `height`     | `string \| number`       | No       | `400`     | Widget height (initial/minimum height)                   |
+| `autoResize` | `boolean`                | No       | `false`   | Enable automatic height resizing based on widget content |
+| `className`  | `string`                 | No       | `""`      | Additional className for the iframe container            |
+| `style`      | `React.CSSProperties`    | No       | `{}`      | Additional inline styles for the iframe                  |
+| `onReady`    | `() => void`             | No       | -         | Callback fired when widget is ready                      |
+| `onError`    | `(error: Error) => void` | No       | -         | Callback fired when widget encounters an error           |
+
+For more details, see the [React package documentation](./packages/react/README.md).
 
 ## Development
 
