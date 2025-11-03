@@ -34,16 +34,17 @@ function App() {
 
 ## Props
 
-| Prop         | Type                     | Required | Default   | Description                                                  |
-| ------------ | ------------------------ | -------- | --------- | ------------------------------------------------------------ |
-| `vaultId`    | `string`                 | **Yes**  | -         | Vault ID to display in the widget                            |
-| `theme`      | `"light" \| "dark"`      | No       | `"light"` | Widget theme                                                 |
-| `height`     | `string \| number`       | No       | `400`     | Widget height (initial/minimum height, e.g., "400px" or 400) |
-| `autoResize` | `boolean`                | No       | `false`   | Enable automatic height resizing based on widget content     |
-| `className`  | `string`                 | No       | `""`      | Additional className for the iframe container                |
-| `style`      | `React.CSSProperties`    | No       | `{}`      | Additional inline styles for the iframe                      |
-| `onReady`    | `() => void`             | No       | -         | Callback fired when widget is ready                          |
-| `onError`    | `(error: Error) => void` | No       | -         | Callback fired when widget encounters an error               |
+| Prop         | Type                     | Required | Default                                       | Description                                                  |
+| ------------ | ------------------------ | -------- | --------------------------------------------- | ------------------------------------------------------------ |
+| `vaultId`    | `string`                 | **Yes**  | -                                             | Vault ID to display in the widget                            |
+| `theme`      | `"light" \| "dark"`      | No       | `"light"`                                     | Widget theme                                                 |
+| `height`     | `string \| number`       | No       | `400`                                         | Widget height (initial/minimum height, e.g., "400px" or 400) |
+| `autoResize` | `boolean`                | No       | `false`                                       | Enable automatic height resizing based on widget content     |
+| `baseUrl`    | `string`                 | No       | `"https://aleph-widget-dev.up.railway.app"`  | Base URL for the widget iframe source                        |
+| `className`  | `string`                 | No       | `""`                                          | Additional className for the iframe container                |
+| `style`      | `React.CSSProperties`    | No       | `{}`                                          | Additional inline styles for the iframe                      |
+| `onReady`    | `() => void`             | No       | -                                             | Callback fired when widget is ready                          |
+| `onError`    | `(error: Error) => void` | No       | -                                             | Callback fired when widget encounters an error               |
 
 ## Example with all props
 

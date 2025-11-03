@@ -37,6 +37,11 @@ export interface AlephWidgetProps {
   style?: React.CSSProperties;
 
   /**
+   * Base URL for the widget
+   */
+  baseUrl?: string;
+
+  /**
    * Callback fired when widget is ready
    */
   onReady?: () => void;
@@ -47,6 +52,10 @@ export interface AlephWidgetProps {
   onError?: (error: Error) => void;
 }
 
+/**
+ * Aleph Widget React component
+ * @component
+ */
 export const AlephWidget = React.forwardRef<
   HTMLIFrameElement,
   AlephWidgetProps
@@ -59,6 +68,7 @@ export const AlephWidget = React.forwardRef<
       autoResize = false,
       className = "",
       style = {},
+      baseUrl = WIDGET_URL,
       onReady,
       onError,
     },
@@ -67,11 +77,11 @@ export const AlephWidget = React.forwardRef<
     const [height, setHeight] = useState<string | number>(initialHeight);
     const [_, setIsReady] = useState(false);
 
-    const iframeSrc = `${WIDGET_URL}?theme=${theme}&vaultId=${vaultId}`;
+    const iframeSrc = `${baseUrl}?theme=${theme}&vaultId=${vaultId}`;
 
     useEffect(() => {
       const handleMessage = (event: MessageEvent) => {
-        if (event.origin !== WIDGET_URL) {
+        if (event.origin !== baseUrl) {
           return;
         }
 
@@ -122,4 +132,4 @@ export const AlephWidget = React.forwardRef<
 
 AlephWidget.displayName = "AlephWidget";
 
-export default AlephWidget;
+export type AlephWidgetType = typeof AlephWidget;

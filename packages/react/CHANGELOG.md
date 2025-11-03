@@ -1,5 +1,13 @@
 # @aleph-fi/widget-react
 
+## 1.0.1
+
+### Patch Changes
+
+- - Added `baseUrl` prop to allow customization of the widget iframe source URL
+  - Updated documentation in both main and package README files to include the new prop
+  - Updated license information from Proprietary to Business Source License 1.1
+
 ## 1.0.0
 
 ### Major Changes
